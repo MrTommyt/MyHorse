@@ -43,7 +43,7 @@ public class MyHorse extends JavaPlugin
 	private Economy								economy					= null;
 	public int									maxHorsesPrPlayer		= 3;
 
-	public static final String					NMS						= "v1_8_R2";
+	public static final String					NMS						= "v1_9_R1";
 	
 	public boolean isCombatibleServer()
 	{
