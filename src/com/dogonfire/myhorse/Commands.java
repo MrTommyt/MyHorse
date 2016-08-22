@@ -907,6 +907,17 @@ public class Commands
 		}
 		String horseName = this.plugin.getHorseManager().getNameForHorse(horseIdentifier);
 
+		UUID ownerId = this.plugin.getHorseManager().getOwnerForHorse(horseIdentifier);
+
+		if (!player.isOp() && !this.plugin.getPermissionsManager().hasPermission(player, "myhorse.admin"))
+		{
+			if(ownerId != player.getUniqueId() && !this.plugin.getHorseManager().isHorseFriend(horseIdentifier, player.getUniqueId()))
+			{
+				player.sendMessage(this.plugin.getLanguageManager().getLanguageString(LanguageManager.LANGUAGESTRING.CannotUseLockedHorse, ChatColor.DARK_RED));			
+				return false;
+			}
+		}
+
 		this.plugin.getOwnerManager().setCurrentHorseIdentifierForPlayer(player.getUniqueId(), horseIdentifier);
 		this.plugin.getLanguageManager().setName(horseName);
 		player.sendMessage(this.plugin.getLanguageManager().getLanguageString(LanguageManager.LANGUAGESTRING.YouSelectedHorse, ChatColor.GREEN));
