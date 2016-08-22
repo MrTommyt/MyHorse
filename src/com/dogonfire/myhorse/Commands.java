@@ -3,9 +3,9 @@ package com.dogonfire.myhorse;
 import java.util.List;
 import java.util.UUID;
 import net.milkbowl.vault.economy.Economy;
-import net.minecraft.server.v1_9_R1.EntityLiving;
-import net.minecraft.server.v1_9_R1.EntityPlayer;
-import net.minecraft.server.v1_9_R1.NBTTagCompound;
+import net.minecraft.server.v1_10_R1.EntityLiving;
+import net.minecraft.server.v1_10_R1.NBTTagCompound;
+
 import org.apache.commons.lang.StringUtils;
 
 import org.bukkit.ChatColor;
@@ -13,8 +13,8 @@ import org.bukkit.Location;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Horse;
@@ -963,6 +963,7 @@ public class Commands
 			case 4:
 				typeName = "Skeleton";
 		}
+		
 		player.sendMessage(ChatColor.YELLOW + "------------------ " + horseName + " ------------------");
 
 		player.sendMessage(ChatColor.AQUA + "Type: " + ChatColor.WHITE + typeName);
@@ -982,6 +983,7 @@ public class Commands
 				player.sendMessage(ChatColor.WHITE + "  " + plugin.getServer().getOfflinePlayer(friendId).getName());
 			}
 		}
+		
 		((CraftPlayer) player).getHandle().world.broadcastEntityEffect(el, (byte) 7);
 
 		this.plugin.getLanguageManager().setName(horseName);
